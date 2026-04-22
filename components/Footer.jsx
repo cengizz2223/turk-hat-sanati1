@@ -1,20 +1,10 @@
 const pages = [
   { href: '#hero',        label: 'Ana Sayfa' },
-  { href: '#hakkimizda', label: 'Hakkımızda' },
-  { href: '#galeri',     label: 'Galeri' },
-  { href: '#hizmetler',  label: 'Hizmetler' },
-  { href: '#atolye',     label: 'Atölye' },
-  { href: '#referanslar',label: 'Referanslar' },
-  { href: '#iletisim',   label: 'İletişim' },
-]
-
-const services = [
-  { href: '#hizmetler', label: 'Özel Siparişler' },
-  { href: '#atolye',    label: 'Hat Atölyeleri' },
-  { href: '#hizmetler', label: 'Kurumsal Hatlar' },
-  { href: '#hizmetler', label: 'Nikâh Hediyelikleri' },
-  { href: '#hizmetler', label: 'Dijital Hat' },
-  { href: '#hizmetler', label: 'Malzeme & Kitap' },
+  { href: '#hakkinda',    label: 'Proje Hakkında' },
+  { href: '#etkinlikler', label: 'Etkinlikler' },
+  { href: '#egitmenler',  label: 'Eğitmenler' },
+  { href: '#paydashlar',  label: 'Paydaşlar' },
+  { href: '#iletisim',    label: 'İletişim' },
 ]
 
 export default function Footer() {
@@ -27,8 +17,8 @@ export default function Footer() {
           <div className="ft-brand-main">Türk Hat Sanatı</div>
           <span className="ft-brand-script">Yolculuğu</span>
           <p className="ft-brand-desc">
-            Asırların birikimiyle şekillenen hat sanatını,<br />
-            modern bir ruhla yaşatıyoruz.
+            Berlin&apos;de hüsn-i hat sanatı aracılığıyla<br />
+            kültürel aidiyet ve kimlik inşasına katkı sunuyoruz.
           </p>
         </div>
 
@@ -42,13 +32,16 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Services */}
+        {/* Partners */}
         <div>
-          <div className="ft-col-title">Hizmetler</div>
+          <div className="ft-col-title">Paydaşlar</div>
           <ul className="ft-links">
-            {services.map((s) => (
-              <li key={s.label}><a href={s.href}>{s.label}</a></li>
-            ))}
+            <li><a href="#paydashlar">YTB</a></li>
+            <li><a href="#paydashlar">Irfan Bildungs- und Kulturverein e.V.</a></li>
+            <li><a href="#paydashlar">T.C. Berlin Büyükelçiliği</a></li>
+            <li><a href="#paydashlar">Hayrat Avrupa</a></li>
+            <li><a href="#paydashlar">Yunus Emre Enstitüsü</a></li>
+            <li><a href="#paydashlar">Seniyye</a></li>
           </ul>
         </div>
 
@@ -62,24 +55,23 @@ export default function Footer() {
             </a>
           </div>
           <div className="ft-contact-item">
-            <div className="ft-contact-lbl">Telefon</div>
-            <a href="tel:+905000000000" className="ft-contact-val">
-              +90 (XXX) XXX XX XX
-            </a>
-          </div>
-          <div className="ft-contact-item">
             <div className="ft-contact-lbl">Konum</div>
-            <span className="ft-contact-val">İstanbul, Türkiye</span>
+            <span className="ft-contact-val">Berlin, Deutschland</span>
+          </div>
+          <div className="ft-contact-item" style={{ marginTop: '20px' }}>
+            <a href="#iletisim" className="ft-contact-val" style={{ color: 'var(--gold)', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+              → Impressum
+            </a>
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
         <p className="ft-copy">
-          © 2024 <span>Türk Hat Sanatı Yolculuğu</span>. Tüm hakları saklıdır.
+          © 2024 <span>Gelenekten Geleceğe Türk Hat Sanatı Yolculuğu</span>. Tüm hakları saklıdır.
         </p>
         <p className="ft-copy">
-          Hat&apos;la yazılmış bir <span>♥</span> ile
+          Berlin&apos;den <span>♥</span> ile
         </p>
       </div>
     </footer>

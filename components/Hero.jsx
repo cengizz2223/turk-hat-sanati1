@@ -1,8 +1,16 @@
 'use client'
 
+const highlights = [
+  'Berlin merkezli kültür ve sanat projesi',
+  'Seminer ve uygulamalı atölye modeli',
+  'Diaspora gençliğine yönelik kültürel aidiyet odağı',
+  'Türkiye\'den davet edilen uzman eğitmenler',
+  'Sürdürülebilir ve görünür çıktı hedefi',
+]
+
 export default function Hero() {
   const scrollDown = () =>
-    document.getElementById('hakkimizda')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('hakkinda')?.scrollIntoView({ behavior: 'smooth' })
 
   return (
     <section className="hero" id="hero">
@@ -25,21 +33,35 @@ export default function Hero() {
       </svg>
 
       <div className="hero-content">
-        <div className="hero-tagline">Gelenekten Geleceğe</div>
-        <h1 className="hero-title">Türk Hat Sanatı</h1>
+        <div className="hero-tagline">Gelenekten Geleceğe · Berlin</div>
+        <h1 className="hero-title">Hüsn-i Hat</h1>
         <div className="hero-script-wrap">
           <div className="hero-script">Yolculuğu</div>
         </div>
         <div className="hero-line" />
         <div className="hero-sub-wrap">
           <p className="hero-subtitle">
-            Asırların ruhuyla işlenmiş hat sanatını,<br />
-            modern bir yolculukla sizinle buluşturuyoruz.
+            Hüsn-i Hat ile kültürel hafızayı canlı tutan,<br />
+            kimlik bilincini güçlendiren çok boyutlu bir yolculuk.<br />
+            <span style={{ opacity: 0.6, fontSize: '13px' }}>
+              Sanat, estetik ve aidiyet arasında güçlü bir bağ.
+            </span>
           </p>
         </div>
-        <div className="hero-buttons">
-          <a href="#galeri"     className="btn-primary">Galeriyi Keşfet</a>
-          <a href="#hakkimizda" className="btn-secondary">Hikâyemiz</a>
+
+        {/* Project highlights */}
+        <div className="hero-highlights">
+          {highlights.map((item) => (
+            <div key={item} className="hero-highlight-item">
+              <span className="hero-highlight-dot" />
+              {item}
+            </div>
+          ))}
+        </div>
+
+        <div className="hero-buttons" style={{ marginTop: '48px' }}>
+          <a href="#etkinlikler" className="btn-primary">Etkinlikleri Keşfet</a>
+          <a href="#hakkinda"    className="btn-secondary">Proje Hakkında</a>
         </div>
       </div>
 

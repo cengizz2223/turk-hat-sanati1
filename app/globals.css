@@ -1,6 +1,8 @@
 /* =============================================
    CSS VARIABLES & RESET
 ============================================= */
+/* NEW SECTIONS: Hero highlights, About blocks,
+   Etkinlikler, Egitmenler, Paydashlar — added below main styles */
 :root {
   --navy:        #0D1B3E;
   --navy-mid:    #1A2B52;
@@ -1141,7 +1143,447 @@ footer {
   .hero-title { font-size: 44px; }
   .hero-script { font-size: 40px; }
   .hero-buttons { flex-direction: column; align-items: center; }
-  .gallery-grid { grid-template-columns: 1fr; }
   footer { padding: 60px 24px 36px; }
   .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* =============================================
+   HERO HIGHLIGHTS
+============================================= */
+.hero-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 36px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(240,230,216,0.65);
+}
+.hero-highlight-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   ABOUT BLOCKS
+============================================= */
+.about-block {
+  margin-bottom: 28px;
+}
+.about-block-title {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.about-output-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+.about-output-list li {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-body);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.about-output-list li::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* =============================================
+   ETKİNLİKLER
+============================================= */
+.etkinlikler {
+  background: var(--navy);
+  padding: 120px 60px;
+}
+.etkinlikler-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.etkinlikler-intro {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(240,230,216,0.55);
+  max-width: 500px;
+  margin: 0 auto;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+.modul-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 64px;
+}
+.modul-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,169,110,0.15);
+  padding: 56px 48px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.modul-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s var(--ease);
+}
+.modul-card:hover {
+  background: rgba(255,255,255,0.055);
+  transform: translateY(-4px);
+}
+.modul-card:hover::before { transform: scaleX(1); }
+.modul-num {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.modul-style {
+  font-family: var(--font-serif), serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.modul-trainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(201,169,110,0.85);
+  margin-bottom: 24px;
+}
+.modul-desc {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(240,230,216,0.55);
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+.modul-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.modul-tag {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,169,110,0.3);
+  padding: 6px 14px;
+}
+
+/* Expectations */
+.expectations {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(201,169,110,0.12);
+  padding: 52px 48px;
+}
+.expectations-title {
+  font-family: var(--font-serif), serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 36px;
+  text-align: center;
+}
+.expectations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.expectation-item {
+  text-align: center;
+}
+.expectation-num {
+  font-family: var(--font-serif), serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(201,169,110,0.2);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.expectation-text {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(240,230,216,0.65);
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+}
+
+/* =============================================
+   EĞİTMENLER
+============================================= */
+.egitmenler {
+  background: var(--cream-light);
+  padding: 120px 60px;
+  text-align: center;
+}
+.egitmenler-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 64px;
+  text-align: left;
+}
+.egitmen-card {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(13,27,62,0.08);
+  transition: var(--transition);
+}
+.egitmen-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(13,27,62,0.14);
+}
+.egitmen-visual {
+  background: linear-gradient(145deg, var(--navy-mid), var(--navy));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+.egitmen-glyph {
+  font-family: serif;
+  font-size: 140px;
+  color: rgba(240,230,216,0.1);
+  user-select: none;
+  line-height: 1;
+}
+.egitmen-module-badge {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 10px;
+  text-align: center;
+}
+.egitmen-content {
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.egitmen-style {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.egitmen-name {
+  font-family: var(--font-serif), serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.egitmen-divider {
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 20px;
+}
+.egitmen-bio {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-body);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+
+/* =============================================
+   PAYDAŞLAR
+============================================= */
+.paydashlar {
+  background: var(--white);
+  padding: 120px 60px;
+  text-align: center;
+}
+.paydashlar-intro {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #999;
+  max-width: 480px;
+  margin: 0 auto;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+.paydashlar-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 56px;
+  margin-bottom: 56px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.partner-main-card {
+  background: var(--navy);
+  padding: 52px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: var(--transition);
+}
+.partner-main-card:hover { transform: translateY(-4px); }
+.partner-main-abbr {
+  font-family: var(--font-serif), serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.partner-main-name {
+  font-family: var(--font-serif), serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--cream);
+  text-align: center;
+}
+.partner-main-desc {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(240,230,216,0.5);
+  letter-spacing: 0.05em;
+  text-align: center;
+  line-height: 1.6;
+}
+.paydashlar-support-label {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+.paydashlar-support {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.partner-support-card {
+  background: var(--cream-light);
+  border: 1px solid var(--cream-dark);
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: var(--transition);
+}
+.partner-support-card:hover {
+  border-color: var(--gold);
+  background: var(--white);
+  transform: translateY(-2px);
+}
+.partner-support-abbr {
+  font-family: var(--font-serif), serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  opacity: 0.3;
+  width: 28px;
+  text-align: center;
+}
+.partner-support-name {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: 0.03em;
+}
+
+/* =============================================
+   RESPONSIVE — NEW SECTIONS
+============================================= */
+@media (max-width: 1024px) {
+  .etkinlikler { padding: 80px 40px; }
+  .egitmenler  { padding: 80px 40px; }
+  .paydashlar  { padding: 80px 40px; }
+  .expectations-grid { grid-template-columns: repeat(2, 1fr); }
+  .egitmenler-grid { grid-template-columns: 1fr; }
+  .egitmen-card { grid-template-columns: 200px 1fr; }
+}
+
+@media (max-width: 768px) {
+  .etkinlikler { padding: 60px 24px; }
+  .egitmenler  { padding: 60px 24px; }
+  .paydashlar  { padding: 60px 24px; }
+  .modul-grid  { grid-template-columns: 1fr; }
+  .expectations-grid { grid-template-columns: 1fr 1fr; }
+  .paydashlar-main { grid-template-columns: 1fr; max-width: 400px; }
+  .egitmen-card { grid-template-columns: 1fr; }
+  .egitmen-visual { min-height: 200px; }
+}
+
+@media (max-width: 480px) {
+  .expectations-grid { grid-template-columns: 1fr; }
+  .hero-highlights { align-items: flex-start; text-align: left; }
 }

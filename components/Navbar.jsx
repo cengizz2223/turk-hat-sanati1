@@ -32,12 +32,11 @@ export default function Navbar() {
       </Link>
 
       <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
-        <li><a href="#hakkimizda" onClick={closeMenu}>Hakkımızda</a></li>
-        <li><a href="#galeri"     onClick={closeMenu}>Galeri</a></li>
-        <li><a href="#hizmetler" onClick={closeMenu}>Hizmetler</a></li>
-        <li><a href="#atolye"    onClick={closeMenu}>Atölye</a></li>
-        <li><a href="#referanslar" onClick={closeMenu}>Referanslar</a></li>
-        <li><a href="#iletisim"  className="nav-cta" onClick={closeMenu}>İletişim</a></li>
+        <li><a href="#hakkinda"    onClick={closeMenu}>Proje</a></li>
+        <li><a href="#etkinlikler" onClick={closeMenu}>Etkinlikler</a></li>
+        <li><a href="#egitmenler"  onClick={closeMenu}>Eğitmenler</a></li>
+        <li><a href="#paydashlar"  onClick={closeMenu}>Paydaşlar</a></li>
+        <li><a href="#iletisim" className="nav-cta" onClick={closeMenu}>İletişim</a></li>
       </ul>
 
       <button
@@ -45,9 +44,7 @@ export default function Navbar() {
         onClick={toggleMenu}
         aria-label="Menüyü aç/kapat"
       >
-        <span />
-        <span />
-        <span />
+        <span /><span /><span />
       </button>
     </nav>
   )
