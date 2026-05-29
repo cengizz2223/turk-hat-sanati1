@@ -1,3 +1,13 @@
+'use client'
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
+
+const slides = [
+  '/images/about-slide-1.jpg',
+  '/images/about-slide-2.jpg',
+  '/images/about-slide-3.jpg',
+]
+
 const outputs = [
   'Seminer ve atölye çalışmaları',
   'Katılımcı üretimleri',
@@ -6,15 +16,83 @@ const outputs = [
   'Dijital katalog',
 ]
 
+function AboutSlider() {
+  const [current, setCurrent] = useState(0)
+  const [animating, setAnimating] = useState(false)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goTo((prev) => (prev + 1) % slides.length)
+    }, 4500)
+    return () => clearInterval(timer)
+  }, [])
+
+  function goTo(indexOrFn) {
+    if (animating) return
+    setAnimating(true)
+    setTimeout(() => {
+      setCurrent(typeof indexOrFn === 'function' ? indexOrFn(current) : indexOrFn)
+      setAnimating(false)
+    }, 350)
+  }
+
+  return (
+    <div className="about-slider">
+      {/* Slides */}
+      <div className={`about-slider-track ${animating ? 'fading' : ''}`}>
+        <Image
+          src={slides[current]}
+          alt={`Atölye ${current + 1}`}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="about-slider-img"
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          priority={current === 0}
+        />
+        {/* Overlay */}
+        <div className="about-slider-overlay" />
+      </div>
+
+      {/* Badge */}
+      <div className="about-img-badge">Berlin · 2024 / 2025</div>
+
+      {/* Nav Arrows */}
+      <button
+        className="about-slider-arrow left"
+        onClick={() => goTo((current - 1 + slides.length) % slides.length)}
+        aria-label="Önceki"
+      >
+        ‹
+      </button>
+      <button
+        className="about-slider-arrow right"
+        onClick={() => goTo((current + 1) % slides.length)}
+        aria-label="Sonraki"
+      >
+        ›
+      </button>
+
+      {/* Dots */}
+      <div className="about-slider-dots">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            className={`about-slider-dot ${i === current ? 'active' : ''}`}
+            onClick={() => goTo(i)}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function About() {
   return (
     <section className="about" id="hakkinda">
-      {/* Image / visual column */}
+      {/* Slider column */}
       <div className="about-img-wrap reveal-left">
-        <div className="about-img-main">
-          <div className="about-img-glyph">ب</div>
-          <div className="about-img-badge">Berlin · 2024 / 2025</div>
-        </div>
+        <AboutSlider />
         <div className="about-img-border" />
       </div>
 
@@ -25,7 +103,6 @@ export default function About() {
         <span className="s-script reveal">Hüsn-i Hat Yolculuğu</span>
         <div className="s-divider reveal" />
 
-        {/* Proje Tanımı */}
         <div className="about-block reveal">
           <div className="about-block-title">Proje Tanımı</div>
           <p className="s-body">
@@ -35,7 +112,6 @@ export default function About() {
           </p>
         </div>
 
-        {/* Proje Amacı */}
         <div className="about-block reveal">
           <div className="about-block-title">Proje Amacı</div>
           <p className="s-body">
@@ -45,7 +121,6 @@ export default function About() {
           </p>
         </div>
 
-        {/* Proje Gerekçesi */}
         <div className="about-block reveal">
           <div className="about-block-title">Proje Gerekçesi</div>
           <p className="s-body">
@@ -55,7 +130,6 @@ export default function About() {
           </p>
         </div>
 
-        {/* Somut Çıktılar */}
         <div className="about-block reveal">
           <div className="about-block-title">Somut Çıktılar</div>
           <ul className="about-output-list">
